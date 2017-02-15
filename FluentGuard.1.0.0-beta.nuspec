@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>FluentGuard</id>
+        <version>1.0.0-beta</version>
+        <authors>Boas Peter Enkler</authors>
+        <owners>Boas Peter Enkler</owners>
+        <licenseUrl>https://github.com/Gentlehag/FluentGuard/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Gentlehag/FluentGuard</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Write easy fluent preconditions in methods of your code.
+
+The library is provided as it is. Use at your own risk.</description>
+        <summary>Library for fluent guarrd assertions.</summary>
+        <releaseNotes>First release, for next version some renamings could happen</releaseNotes>
+        <tags>.net csharp guard fluent assert guard preconditions contract first</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.5" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\net45\BE.FlowGuard.dll" target="lib\net45\BE.FlowGuard.dll" />
+        <file src="lib\net45\BE.FlowGuard.pdb" target="lib\net45\BE.FlowGuard.pdb" />
+    </files>
+</package>
