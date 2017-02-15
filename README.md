@@ -1,4 +1,4 @@
-# FlowGuard
+# FluentGuard
 Tiny guard library for fluent precondition assertion. Current it is implemented for use with c#. Maybe a support for TypeScript and Java may be added.
 
 Also in the near future a .net core  / .net standard release will be aviable.
