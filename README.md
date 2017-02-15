@@ -51,4 +51,4 @@ Preconditions
 
 
 #Nuget Package
-https://www.nuget.org/packages/FlowGuard/
+https://www.nuget.org/packages/FluentGuard
