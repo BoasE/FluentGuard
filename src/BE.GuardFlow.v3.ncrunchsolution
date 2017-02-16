@@ -1,9 +1,0 @@
-﻿<SolutionConfiguration>
-  <Settings>
-    <AllowParallelTestExecution>True</AllowParallelTestExecution>
-    <MetricsExclusionList>
-      <Value>BE.GuardFlow.Tests\BE.GuardFlow.Tests.csproj</Value>
-    </MetricsExclusionList>
-    <SolutionConfigured>True</SolutionConfigured>
-  </Settings>
-</SolutionConfiguration>
