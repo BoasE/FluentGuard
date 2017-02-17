@@ -43,10 +43,21 @@ Preconditions
             .ValidateModel();
 ```
 
+# How to extend
+When you want to add a new validation rule without extending this repository you can just create ExtensionMethods for the given Validation rule. See for example the [StringValidationExtensions](https://github.com/Gentlehag/FluentGuard/blob/master/src/BE.FluentGuard/StringValidationExtensions.cs)
+
+```  
+        public static ValidationRule<string> MinLength(this ValidationRule<string> rule, int length)
+        {
+            if (string.IsNullOrWhiteSpace(rule.Value) || rule.Value.Length < length)
+            {
+                throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Length, $"The value should be at least {length} characters long!");
+            }
+            return rule;
+        }
+```
+
 # Next Steps
-- Add api-documentation
-- Make better names
-- Support .net standard
 - Implement TypeScript
 
 
