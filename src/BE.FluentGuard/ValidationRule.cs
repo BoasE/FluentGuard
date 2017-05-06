@@ -70,27 +70,7 @@ namespace BE.FluentGuard
             }
             return this;
         }
-
-        public ValidationRule<T> True(Predicate<T> validation, string message = "Condition was not met!")
-        {
-            if (!validation(Value))
-            {
-                throw new ArgumentException(message, Name);
-            }
-
-            return this;
-        }
-
-        public ValidationRule<T> False(Predicate<T> validation, string message = "Condition was not met!")
-        {
-            if (validation(Value))
-            {
-                throw new ArgumentException(message, Name);
-            }
-
-            return this;
-        }
-
+        
         /// <summary>
         /// Assert that the value is not equal to the default value of its type
         /// </summary>
