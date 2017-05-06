@@ -1,9 +1,9 @@
 ﻿// ==========================================================================
 // ValidationRule.cs
+// 
+// FlowGuard
+// https://github.com/Gentlehag/FlowGuard
 // ==========================================================================
-// Copyright (c) Boas Enkler
-// All rights reserved.
-// ========================================================================== 
 
 using System;
 
@@ -98,12 +98,34 @@ namespace BE.FluentGuard
         /// <exception cref="ArgumentException">If the value is equal to its type default.</exception>
         public ValidationRule<T> NotDefault()
         {
-            T val = default(T);
+            var val = default(T);
             if (Value.Equals(val))
             {
                 throw new ArgumentException(Name, "Value must have default value!");
             }
             return this;
+        }
+
+        public ValidationRule<T> False(Predicate<T> condition, string message = null)
+        {
+            if (!condition(Value)) return this;
+
+            if (message == null)
+            {
+                message = $"Condition for {Name} was not met.";
+            }
+            throw new ArgumentException(message, Name);
+        }
+
+        public ValidationRule<T> True(Predicate<T> condition, string message = null)
+        {
+            if (condition(Value)) return this;
+
+            if (message == null)
+            {
+                message = $"Condition for {Name} was not met.";
+            }
+            throw new ArgumentException(message, Name);
         }
     }
 }
