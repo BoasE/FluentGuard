@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BE.FluentGuard", "BE.Fluent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BE.FluentGuard.Tests", "BE.FluentGuard.Tests\BE.FluentGuard.Tests.csproj", "{87E9655E-40F2-43FA-BD25-3CE9BCD17F38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE.FluentGuard.NetFxExtensions", "BE.FluentGuard.NetFxExtensions\BE.FluentGuard.NetFxExtensions.csproj", "{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,18 +41,6 @@ Global
 		{87E9655E-40F2-43FA-BD25-3CE9BCD17F38}.Release|x64.Build.0 = Release|Any CPU
 		{87E9655E-40F2-43FA-BD25-3CE9BCD17F38}.Release|x86.ActiveCfg = Release|Any CPU
 		{87E9655E-40F2-43FA-BD25-3CE9BCD17F38}.Release|x86.Build.0 = Release|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Debug|x64.Build.0 = Debug|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Debug|x86.Build.0 = Debug|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Release|x64.ActiveCfg = Release|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Release|x64.Build.0 = Release|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Release|x86.ActiveCfg = Release|Any CPU
-		{DBB9EF25-2E30-43D8-9324-87FA1C19BC9D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
