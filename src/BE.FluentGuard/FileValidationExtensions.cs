@@ -22,7 +22,7 @@ namespace BE.FluentGuard
         {
             rule.NotNullOrWhiteSpace();
 
-            if (!File.Exists(rule.Value))
+            if (!Directory.Exists(rule.Value))
             {
                 if (message == null)
                 {
