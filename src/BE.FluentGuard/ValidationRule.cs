@@ -62,11 +62,11 @@ namespace BE.FluentGuard
         /// </summary>
         /// <returns>this instance</returns>
         /// <exception cref="ArgumentNullException">If the value is null.</exception>
-        public ValidationRule<T> NotNull()
+        public ValidationRule<T> NotNull(string message = "Value must not be null!")
         {
             if (Value == null)
             {
-                throw new ArgumentNullException(Name, "Value must not be null!");
+                throw new ArgumentNullException(Name,message);
             }
             return this;
         }
@@ -76,12 +76,12 @@ namespace BE.FluentGuard
         /// </summary>
         /// <returns>this instance</returns>
         /// <exception cref="ArgumentException">If the value is equal to its type default.</exception>
-        public ValidationRule<T> NotDefault()
+        public ValidationRule<T> NotDefault(string message = "Value must have default value!")
         {
             var val = default(T);
             if (Value.Equals(val))
             {
-                throw new ArgumentException(Name, "Value must have default value!");
+                throw new ArgumentException(Name, message);
             }
             return this;
         }

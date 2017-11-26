@@ -6,6 +6,7 @@
 // ========================================================================== 
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,15 +24,72 @@ namespace BE.FluentGuard
         /// <param name="rule">the validation rule</param>
         /// <exception cref="ArgumentException">If the collection has no items</exception>
         /// <returns></returns>
-        public static ValidationRule<ICollection<T>> HasItems<T>(this ValidationRule<ICollection<T>> rule)
+        public static ValidationRule<ICollection<T>> HasItems<T>(this ValidationRule<ICollection<T>> rule,string message = "The collection must have items!")
         {
             if (!rule.Value.HasAny())
             {
-                throw new ArgumentException("The enumerable should have items!");
+                throw new ArgumentException(message, rule.Name);
             }
             return rule;
         }
 
+        public static ValidationRule<ICollection<T>> HasItem<T>(this ValidationRule<ICollection<T>> rule,T item,string message= "The collection must contain the given item!")
+        {
+            if (!rule.Value.Any(x => x.Equals(item))) 
+            {
+                throw new ArgumentException(message, rule.Name);
+            }
+            return rule;
+        }
+
+        public static ValidationRule<ICollection<T>> NotNullOrEmpty<T>(this ValidationRule<ICollection<T>> rule)
+        {
+            if (rule.Value == null)
+            {
+                throw new ArgumentException("The collection must not be null!",rule.Name);
+            }
+            if (!rule.Value.HasAny())
+            {
+                throw new ArgumentException("The enumerable should have items!", rule.Name);
+            }
+            return rule;
+        }
+
+        public static ValidationRule<ICollection> HasAtLeast(this ValidationRule<ICollection> rule,int minimalCount,string message =null)
+        {
+            if (rule.Value.Count >= minimalCount) return rule;
+
+            if (message == null)
+            {
+                message = $"The collection must have at least {minimalCount} items.";
+            }
+
+            throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Count, message);
+        }
+
+        public static ValidationRule<ICollection> HasAtMost(this ValidationRule<ICollection> rule, int maximumCount, string message = null)
+        {
+            if (rule.Value.Count <= maximumCount) return rule;
+
+            if (message == null)
+            {
+                message = $"The collection must have at most {maximumCount} items.";
+            }
+
+            throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Count, message);
+        }
+
+        public static ValidationRule<ICollection> HasExact(this ValidationRule<ICollection> rule, int expectedCount, string message = null)
+        {
+            if (rule.Value.Count == expectedCount) return rule;
+
+            if (message == null)
+            {
+                message = $"The collection must have exact {expectedCount} items.";
+            }
+
+            throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Count, message);
+        }
         private static bool HasAny<T>(this IEnumerable<T> data)
         {
             return data != null && data.Any();
