@@ -55,8 +55,7 @@ public class MyValueObject
 FluentGuard offers the ability to validate that all defined conditions are met
 ```csharp
 Preconditions
-            .For(()=>Model)
-            .NotNull()
+            .For(()=>myDto)
             .ValidateModel();
 ```
 
