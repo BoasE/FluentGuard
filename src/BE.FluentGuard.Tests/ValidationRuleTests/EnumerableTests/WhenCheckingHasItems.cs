@@ -20,7 +20,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.EnumerableTests
 
             ValidationRule<ICollection<string>> sut = GetSut(val, "a");
 
-            Assert.Throws<ArgumentException>(() => sut.HasItems());
+            Assert.Throws<ArgumentException>(() => sut.Any());
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.EnumerableTests
 
             ValidationRule<ICollection<string>> sut = GetSut(val, "a");
 
-            sut.HasItems();
+            sut.Any();
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.EnumerableTests
 
             ValidationRule<ICollection<string>> sut = GetSut(val, "a");
 
-            Assert.Throws<ArgumentException>(() => sut.HasItems());
+            Assert.Throws<ArgumentException>(() => sut.Any());
         }
     }
 }

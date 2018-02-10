@@ -18,13 +18,61 @@ namespace BE.FluentGuard
     public static class EnumerableValidationExtensions
     {
         /// <summary>
+        /// Asserts that the enumerable has items
+        /// </summary>
+        /// <typeparam name="T">Type of the items in the enumerable</typeparam>
+        /// <param name="rule">the validation rule</param>
+        /// <exception cref="ArgumentException">If the enumerable has no items</exception>
+        /// <returns></returns>
+        public static ValidationRule<IEnumerable<T>> Any<T>(this ValidationRule<IEnumerable<T>> rule,Func<T,bool> condition,string message = "The enumerable must have items!")
+        {
+            if (!rule.Value.HasAny(condition))
+            {
+                throw new ArgumentException(message, rule.Name);
+            }
+            return rule;
+        }
+        
+        /// <summary>
+        /// Asserts that the enumerable has items
+        /// </summary>
+        /// <typeparam name="T">Type of the items in the enumerable</typeparam>
+        /// <param name="rule">the validation rule</param>
+        /// <exception cref="ArgumentException">If the enumerable has no items</exception>
+        /// <returns></returns>
+        public static ValidationRule<IEnumerable<T>> Any<T>(this ValidationRule<IEnumerable<T>> rule,string message = "The enumerable must have items!")
+        {
+            if (!rule.Value.HasAny())
+            {
+                throw new ArgumentException(message, rule.Name);
+            }
+            return rule;
+        }
+        
+        /// <summary>
         /// Asserts that the collection has items
         /// </summary>
         /// <typeparam name="T">Type of the items in the collection</typeparam>
         /// <param name="rule">the validation rule</param>
         /// <exception cref="ArgumentException">If the collection has no items</exception>
         /// <returns></returns>
-        public static ValidationRule<ICollection<T>> HasItems<T>(this ValidationRule<ICollection<T>> rule,string message = "The collection must have items!")
+        public static ValidationRule<ICollection<T>> Any<T>(this ValidationRule<ICollection<T>> rule,Func<T,bool> condition,string message = "The collection must have items!")
+        {
+            if (!rule.Value.HasAny(condition))
+            {
+                throw new ArgumentException(message, rule.Name);
+            }
+            return rule;
+        }
+        
+        /// <summary>
+        /// Asserts that the collection has items
+        /// </summary>
+        /// <typeparam name="T">Type of the items in the collection</typeparam>
+        /// <param name="rule">the validation rule</param>
+        /// <exception cref="ArgumentException">If the collection has no items</exception>
+        /// <returns></returns>
+        public static ValidationRule<ICollection<T>> Any<T>(this ValidationRule<ICollection<T>> rule,string message = "The collection must have items!")
         {
             if (!rule.Value.HasAny())
             {
@@ -93,6 +141,11 @@ namespace BE.FluentGuard
         private static bool HasAny<T>(this IEnumerable<T> data)
         {
             return data != null && data.Any();
+        }
+        
+        private static bool HasAny<T>(this IEnumerable<T> data,Func<T,bool> predicate)
+        {
+            return data != null && data.Any(predicate);
         }
     }
 }
