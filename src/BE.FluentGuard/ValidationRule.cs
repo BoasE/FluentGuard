@@ -6,6 +6,7 @@
 // ==========================================================================
 
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BE.FluentGuard
 {
@@ -68,6 +69,19 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentNullException(Name,message);
             }
+            return this;
+        }
+        
+        
+        /// <summary>
+        /// Validates if the annotated rules are fullfilled
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ValidationRule<T> IsValidModel(
+            string message = "There are model validation errors")
+        {
+            Validator.ValidateObject(Value, new ValidationContext(Value));
             return this;
         }
         
