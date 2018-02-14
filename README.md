@@ -1,7 +1,8 @@
 # FluentGuard
-Tiny guard library for fluent precondition assertion. Current it is implemented for use with c#. Maybe a support for TypeScript and Java may be added.
+Tiny guard library for fluent precondition assertion. Current it is implemented for use with .net standard / core. Maybe a support for TypeScript and Java may be added.
 
-Also in the near future a .net core  / .net standard release will be aviable.
+You can follow my assumptions on this topic on my blog post: https://medium.com/@Haggy/preconditions-in-net-softwaredevelopment-e1566b71b344
+
 
 Feel free to fork !
 
