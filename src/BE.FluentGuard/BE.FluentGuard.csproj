@@ -8,7 +8,7 @@
     <Authors>Boas Enkler</Authors>
     <Description>Library for easy fluent assertions</Description>
     
-    <PackageId>BE.FluentGuard</PackageId>
+    <PackageId>FluentGuard</PackageId>
     <PackageProjectUrl>https://github.com/BoasE/FluentGuard</PackageProjectUrl>
     <PackageReleaseNotes>Added overloads for custom messages, Upgrade netstandard 2.0</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/BoasE/FluentGuard/blob/master/LICENSE</PackageLicenseUrl>
