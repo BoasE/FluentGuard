@@ -1,12 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <Title>BE.FluentGuard</Title>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Version>1.0.4</Version>
-    <Description>Library for easy fluent assertions</Description>
-    <PackageReleaseNotes>Added overloads for custom messages, Upgrade netstandard 2.0</PackageReleaseNotes>
+    
     <Authors>Boas Enkler</Authors>
+    <Description>Library for easy fluent assertions</Description>
+    
+    <PackageId>BE.FluentGuard</PackageId>
+    <PackageProjectUrl>https://github.com/BoasE/FluentGuard</PackageProjectUrl>
+    <PackageReleaseNotes>Added overloads for custom messages, Upgrade netstandard 2.0</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/BoasE/FluentGuard/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>.net,c#,asserts,preconditions</PackageTags>
+    <PackageVersion>1.0.4</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
