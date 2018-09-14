@@ -67,24 +67,22 @@ namespace BE.FluentGuard
         {
             if (Value == null)
             {
-                throw new ArgumentNullException(Name,message);
+                throw new ArgumentNullException(Name, message);
             }
+
             return this;
         }
-        
-        
+
         /// <summary>
         /// Validates if the annotated rules are fullfilled
         /// </summary>
-        /// <param name="message"></param>
         /// <returns></returns>
-        public ValidationRule<T> IsValidModel(
-            string message = "There are model validation errors")
+        public ValidationRule<T> IsValidModel()
         {
             Validator.ValidateObject(Value, new ValidationContext(Value));
             return this;
         }
-        
+
         /// <summary>
         /// Assert that the value is not equal to the default value of its type
         /// </summary>
@@ -97,6 +95,7 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentException(Name, message);
             }
+
             return this;
         }
 
@@ -108,6 +107,7 @@ namespace BE.FluentGuard
             {
                 message = $"Condition for {Name} was not met.";
             }
+
             throw new ArgumentException(message, Name);
         }
 
@@ -119,6 +119,7 @@ namespace BE.FluentGuard
             {
                 message = $"Condition for {Name} was not met.";
             }
+
             throw new ArgumentException(message, Name);
         }
     }

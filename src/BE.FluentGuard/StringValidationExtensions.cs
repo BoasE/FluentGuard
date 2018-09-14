@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 
@@ -20,13 +20,14 @@ namespace BE.FluentGuard
         /// <param name="rule">rule on which it should be asserted.</param>
         /// <param name="length">minimal length of the string.</param>
         /// <returns>The validation rule.</returns>
-        public static ValidationRule<string> MinLength(this ValidationRule<string> rule, int length)
+        public static ValidationRule<string> MinLength(this ValidationRule<string> rule, int length, string message = null)
         {
-            if (string.IsNullOrWhiteSpace(rule.Value) || rule.Value.Length < length)
-            {
-                throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Length, $"The value should be at least {length} characters long!");
-            }
-            return rule;
+            if (!string.IsNullOrWhiteSpace(rule.Value) && rule.Value.Length >= length)
+                return rule;
+
+            message = message ?? $"The value should be at least {length} characters long!";
+
+            throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Length, message);
         }
 
         /// <summary>
@@ -38,13 +39,13 @@ namespace BE.FluentGuard
         /// <returns>The validation rule.</returns>
         /// /// <exception cref="ArgumentException">If the asserted string isn't equal to the given strign</exception>
         public static ValidationRule<string> Equal(this ValidationRule<string> rule, string value,
-            StringComparison comparison)
+            StringComparison comparison, string message = null)
         {
-            if (!string.Equals(rule.Value, value, comparison))
-            {
-                throw new ArgumentException(rule.Name, "Value must not be null or empty!");
-            }
-            return rule;
+            if (string.Equals(rule.Value, value, comparison))
+                return rule;
+
+            message = message ?? "Value must not be null or empty!";
+            throw new ArgumentException(rule.Name, message);
         }
 
         /// <summary>
@@ -54,18 +55,18 @@ namespace BE.FluentGuard
         /// <returns>The validation rule.</returns>
         /// <exception cref="ArgumentNullException">If the asserted string is null</exception>
         /// <exception cref="ArgumentException">If the asserted string is empty</exception>
-        public static ValidationRule<string> NotNullOrEmpty(this ValidationRule<string> rule)
+        public static ValidationRule<string> NotNullOrEmpty(this ValidationRule<string> rule, string message = null)
         {
             if (rule.Value == null)
             {
-                throw new ArgumentNullException(rule.Name, "Value must not be null!");
+                throw new ArgumentNullException(rule.Name, message ?? "Value must not be null!");
             }
 
             if (string.IsNullOrEmpty(rule.Value))
             {
-                throw new ArgumentException(rule.Name, "Value must not be null or empty!");
+                throw new ArgumentException(rule.Name, message ?? "Value must not be null or empty!");
             }
-           
+
             return rule;
         }
 
@@ -76,16 +77,16 @@ namespace BE.FluentGuard
         /// <returns>The validation rule.</returns>
         /// <exception cref="ArgumentNullException">If the asserted string is null</exception>
         /// <exception cref="ArgumentException">If the asserted string is empty or whitespaces only</exception>
-        public static ValidationRule<string> NotNullOrWhiteSpace(this ValidationRule<string> rule)
+        public static ValidationRule<string> NotNullOrWhiteSpace(this ValidationRule<string> rule, string message = null)
         {
             if (rule.Value == null)
             {
-                throw new ArgumentNullException(rule.Name, "Value must not be null!");
+                throw new ArgumentNullException(rule.Name, message ?? "Value must not be null!");
             }
 
             if (string.IsNullOrWhiteSpace(rule.Value))
             {
-                throw new ArgumentException(rule.Name, "Value must not be null or empty!");
+                throw new ArgumentException(rule.Name, message ?? "Value must not be null or empty!");
             }
 
             return rule;

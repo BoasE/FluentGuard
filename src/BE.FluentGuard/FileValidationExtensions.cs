@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
 namespace BE.FluentGuard
 {
@@ -15,6 +12,7 @@ namespace BE.FluentGuard
             {
                 throw new FileNotFoundException(message, rule.Value);
             }
+
             return rule;
         }
 
@@ -22,15 +20,15 @@ namespace BE.FluentGuard
         {
             rule.NotNullOrWhiteSpace();
 
-            if (!Directory.Exists(rule.Value))
+            if (Directory.Exists(rule.Value))
+                return rule;
+
+            if (message == null)
             {
-                if (message == null)
-                {
-                    message = $"Directory \"{rule.Value}\" must exist";
-                }
-                throw new DirectoryNotFoundException(message);
+                message = $"Directory \"{rule.Value}\" must exist";
             }
-            return rule;
+
+            throw new DirectoryNotFoundException(message);
         }
     }
 }

@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using System.Collections;
@@ -30,9 +30,10 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentException(message, rule.Name);
             }
+
             return rule;
         }
-        
+
         /// <summary>
         /// Asserts that the enumerable has items
         /// </summary>
@@ -46,9 +47,10 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentException(message, rule.Name);
             }
+
             return rule;
         }
-        
+
         /// <summary>
         /// Asserts that the collection has items
         /// </summary>
@@ -62,9 +64,10 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentException(message, rule.Name);
             }
+
             return rule;
         }
-        
+
         /// <summary>
         /// Asserts that the collection has items
         /// </summary>
@@ -78,15 +81,17 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentException(message, rule.Name);
             }
+
             return rule;
         }
 
         public static ValidationRule<ICollection<T>> HasItem<T>(this ValidationRule<ICollection<T>> rule,T item,string message= "The collection must contain the given item!")
         {
-            if (!rule.Value.Any(x => x.Equals(item))) 
+            if (!rule.Value.Any(x => x.Equals(item)))
             {
                 throw new ArgumentException(message, rule.Name);
             }
+
             return rule;
         }
 
@@ -96,10 +101,12 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentException("The collection must not be null!",rule.Name);
             }
+
             if (!rule.Value.HasAny())
             {
                 throw new ArgumentException("The enumerable should have items!", rule.Name);
             }
+
             return rule;
         }
 
@@ -138,11 +145,12 @@ namespace BE.FluentGuard
 
             throw new ArgumentOutOfRangeException(rule.Name, rule.Value.Count, message);
         }
+
         private static bool HasAny<T>(this IEnumerable<T> data)
         {
             return data != null && data.Any();
         }
-        
+
         private static bool HasAny<T>(this IEnumerable<T> data,Func<T,bool> predicate)
         {
             return data != null && data.Any(predicate);

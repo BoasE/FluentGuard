@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 
@@ -14,7 +14,6 @@ namespace BE.FluentGuard
     /// </summary>
     public static class CompareableValidationExtensions
     {
-
         /// <summary>
         /// Asserts that the value is at least the value that is passed
         /// </summary>
@@ -29,6 +28,7 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentOutOfRangeException(rule.Name, rule.Value, $"The value should be at least \"{minimal}\" !");
             }
+
             return rule;
         }
 
@@ -46,6 +46,7 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentOutOfRangeException(rule.Name, rule.Value, $"The value should be at least \"{maximum}\" !");
             }
+
             return rule;
         }
 
@@ -64,6 +65,7 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentOutOfRangeException(rule.Name, rule.Value, $"The value should be between \"{minimal}\" and \"{maximum}\" !");
             }
+
             return rule;
         }
 
@@ -82,6 +84,7 @@ namespace BE.FluentGuard
             {
                 throw new ArgumentOutOfRangeException(rule.Name, rule.Value, $"The value should be between \"{minimal}\" and \"{maximum}\" !");
             }
+
             return rule;
         }
     }
