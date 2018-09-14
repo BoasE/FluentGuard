@@ -2,6 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Version>1.0.4</Version>
+    <Description>Library for easy fluent assertions</Description>
+    <PackageReleaseNotes>Added overloads for custom messages, Upgrade netstandard 2.0</PackageReleaseNotes>
+    <Authors>Boas Enkler</Authors>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
