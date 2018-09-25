@@ -11,7 +11,7 @@
     <PackageReleaseNotes>NetFX Support</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/BoasE/FluentGuard/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>.net,c#,asserts,preconditions</PackageTags>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <RepositoryUrl>https://github.com/BoasE/FluentGuard</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
