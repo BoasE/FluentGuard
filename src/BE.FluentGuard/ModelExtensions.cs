@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace BE.FluentGuard
+﻿namespace BE.FluentGuard
 {
     public static class ModelExtensions
     {
