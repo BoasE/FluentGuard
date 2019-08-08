@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using Xunit;
@@ -15,13 +15,11 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.CompareableTests
         [Fact]
         public void ItThrowsWhenValueIsTosmall()
         {
-            ValidationRule<int> sut = GetSut(1, "a");
-
-            Assert.Throws<ArgumentOutOfRangeException>(() => sut.AtLeast(2));
+            Assert.Throws<ArgumentOutOfRangeException>(() => GetSut(1, "a").AtLeast(2));
         }
 
         [Fact]
-        public void SuceedsWhenBigger()
+        public void SucceedsWhenBigger()
         {
             ValidationRule<int> sut = GetSut(3, "a");
 
@@ -29,7 +27,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.CompareableTests
         }
 
         [Fact]
-        public void SuceedsWhenEqual()
+        public void SucceedsWhenEqual()
         {
             ValidationRule<int> sut = GetSut(3, "a");
 

@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using Xunit;
@@ -15,9 +15,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.StringTests
         [Fact]
         public void ItThrowsWhenTooSmall()
         {
-            ValidationRule<string> sut = GetSut("aaa", "Var");
-
-            Assert.Throws<ArgumentOutOfRangeException>(() => sut.MinLength(10));
+            Assert.Throws<ArgumentOutOfRangeException>(() => GetSut("aaa", "Var").MinLength(10));
         }
 
         [Fact]

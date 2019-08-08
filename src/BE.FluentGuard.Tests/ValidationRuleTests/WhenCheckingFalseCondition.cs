@@ -1,6 +1,6 @@
 ﻿// ==========================================================================
 // WhenCheckingTrueCondition.cs
-// 
+//
 // FlowGuard
 // https://github.com/Gentlehag/FlowGuard
 // ==========================================================================
@@ -15,13 +15,11 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests
         [Fact]
         public void ItThrowsIfTrue()
         {
-            var sut = GetSut("a", "para");
-
-            Assert.Throws<ArgumentException>(() => sut.False(val => val.Equals("a")));
+            Assert.Throws<ArgumentException>(() => GetSut("a", "para").False(val => val.Equals("a")));
         }
 
         [Fact]
-        public void SuceedsWhenFalse()
+        public void SucceedsWhenFalse()
         {
             var sut = GetSut("a", "para");
 

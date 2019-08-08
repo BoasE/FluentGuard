@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using Xunit;
@@ -17,13 +17,11 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.StringTests
         {
             var value = "aa";
 
-            ValidationRule<string> sut = GetSut(value, "Var");
-
-            Assert.Throws<ArgumentException>(() => sut.Equal("bb", StringComparison.OrdinalIgnoreCase));
+            Assert.Throws<ArgumentException>(() => GetSut(value, "Var").Equal("bb", StringComparison.OrdinalIgnoreCase));
         }
 
         [Fact]
-        public void ITSuceedsWhenEqual()
+        public void ITSucceedsWhenEqual()
         {
             var value = "aa";
 

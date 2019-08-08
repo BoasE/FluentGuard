@@ -1,11 +1,12 @@
 ﻿// ==========================================================================
 // ValidationRule.cs
-// 
+//
 // FlowGuard
 // https://github.com/Gentlehag/FlowGuard
 // ==========================================================================
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BE.FluentGuard
@@ -14,7 +15,7 @@ namespace BE.FluentGuard
     /// Contains the state of the current assertions
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class ValidationRule<T>
+    public ref struct ValidationRule<T>
     {
         /// <summary>
         /// The value on which assertions are made.
@@ -90,8 +91,7 @@ namespace BE.FluentGuard
         /// <exception cref="ArgumentException">If the value is equal to its type default.</exception>
         public ValidationRule<T> NotDefault(string message = "Value must have default value!")
         {
-            var val = default(T);
-            if (Value.Equals(val))
+            if (EqualityComparer<T>.Default.Equals(Value, default))
             {
                 throw new ArgumentException(Name, message);
             }

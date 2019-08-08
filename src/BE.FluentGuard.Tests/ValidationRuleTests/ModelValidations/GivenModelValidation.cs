@@ -9,12 +9,12 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.ModelValidations
         public void ItThrowsWhenAnnotationsAreNotValid()
         {
             var model = new Model();
-            
+
             Assert.Throws<ValidationException>(()=>Precondition.For(model, nameof(model)).IsValidModel());
         }
-        
+
         [Fact]
-        public void ItSuceedsWhenRequirementsAreFullfilled()
+        public void ItSucceedsWhenRequirementsAreFullfilled()
         {
             var model = new Model {Foo = "aaa"};
             Precondition.For(model, nameof(model)).IsValidModel();
