@@ -28,35 +28,14 @@ namespace BE.FluentGuard
         public string Name { get; }
 
         /// <summary>
-        /// The file in which the assertions was triggered.
-        /// </summary>
-        public string File { get; }
-
-        /// <summary>
-        /// The sourcecode which the assertions was triggered.
-        /// </summary>
-        public string Source { get; }
-
-        /// <summary>
-        /// The line of code on which the assertions was triggered.
-        /// </summary>
-        public int Line { get; }
-
-        /// <summary>
         /// Creates a new validation rules
         /// </summary>
         /// <param name="value">The value on which assertions are made.</param>
         /// <param name="name">Name of the member that contained the value.</param>
-        /// <param name="file">The file in which the assertions was triggered.</param>
-        /// <param name="source">The sourcecode which the assertions was triggered.</param>
-        /// <param name="line">The line of code on which the assertions was triggered.</param>
-        public ValidationRule(T value, string name, string file, string source, int line)
+        public ValidationRule(T value, string name)
         {
             Value = value;
             Name = name;
-            File = file;
-            Source = source;
-            Line = line;
         }
 
         /// <summary>
