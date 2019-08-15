@@ -15,7 +15,7 @@ namespace BE.FluentGuard
     /// Contains the state of the current assertions
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public ref readonly struct ValidationRule<T>
+    public readonly ref struct ValidationRule<T>
     {
         /// <summary>
         /// The value on which assertions are made.

@@ -3,15 +3,15 @@
     <Title>BE.FluentGuard</Title>
     <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Authors>Boas Enkler</Authors>
     <Description>Library for easy fluent assertions</Description>
     <PackageId>FluentGuard</PackageId>
     <PackageProjectUrl>https://github.com/BoasE/FluentGuard</PackageProjectUrl>
-    <PackageReleaseNotes>NetFX Support</PackageReleaseNotes>
+    <PackageReleaseNotes>Using readonly ref structs to avoid unnecessary allocations</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/BoasE/FluentGuard/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>.net,c#,asserts,preconditions</PackageTags>
-    <PackageVersion>1.0.5</PackageVersion>
+    <PackageVersion>1.0.6</PackageVersion>
     <RepositoryUrl>https://github.com/BoasE/FluentGuard</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
