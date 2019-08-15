@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using Xunit;
@@ -15,9 +15,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests
         [Fact]
         public void ItThrowsIfDefault()
         {
-            var sut = GetSut(default(int), "myVar");
-
-            Assert.Throws<ArgumentException>(() => sut.NotDefault());
+            Assert.Throws<ArgumentException>(() => GetSut(default(int), "myVar").NotDefault());
         }
 
         [Fact]

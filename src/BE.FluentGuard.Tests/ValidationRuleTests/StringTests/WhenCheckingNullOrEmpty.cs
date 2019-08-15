@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using Xunit;
@@ -15,21 +15,17 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.StringTests
         [Fact]
         public void ItThrowsWhenNull()
         {
-            ValidationRule<string> sut = GetSut((string)null, "Var");
-
-            Assert.Throws<ArgumentNullException>(() => sut.NotNullOrEmpty());
+            Assert.Throws<ArgumentNullException>(() => GetSut((string)null, "Var").NotNullOrEmpty());
         }
 
         [Fact]
         public void ItThrowsWhenEmpty()
         {
-            ValidationRule<string> sut = GetSut("", "Var");
-
-            Assert.Throws<ArgumentException>(() => sut.NotNullOrEmpty());
+            Assert.Throws<ArgumentException>(() => GetSut("", "Var").NotNullOrEmpty());
         }
 
         [Fact]
-        public void ItSuceedsWhenfilled()
+        public void ItSucceedsWhenFilled()
         {
             ValidationRule<string> sut = GetSut("asdas", "Var");
 
@@ -37,7 +33,7 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.StringTests
         }
 
         [Fact]
-        public void ItSuceedsWhenWhitespace()
+        public void ItSucceedsWhenWhitespace()
         {
             ValidationRule<string> sut = GetSut("  ", "Var");
 

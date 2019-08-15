@@ -3,7 +3,7 @@
 // ==========================================================================
 // Copyright (c) Boas Enkler
 // All rights reserved.
-// ========================================================================== 
+// ==========================================================================
 
 using System;
 using System.Collections.Generic;
@@ -18,13 +18,11 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.EnumerableTests
         {
             ICollection<string> val = null;
 
-            ValidationRule<ICollection<string>> sut = GetSut(val, "a");
-
-            Assert.Throws<ArgumentException>(() => sut.Any());
+            Assert.Throws<ArgumentException>(() => GetSut(val, "a").Any());
         }
 
         [Fact]
-        public void SuccedesWhenItHasItems()
+        public void SucceedsWhenItHasItems()
         {
             ICollection<string> val = new List<string>
             {
@@ -37,13 +35,11 @@ namespace BE.FluentGuard.Tests.ValidationRuleTests.EnumerableTests
         }
 
         [Fact]
-        public void FailsWhenListIsEmptry()
+        public void FailsWhenListIsEmpty()
         {
             ICollection<string> val = new List<string>();
 
-            ValidationRule<ICollection<string>> sut = GetSut(val, "a");
-
-            Assert.Throws<ArgumentException>(() => sut.Any());
+            Assert.Throws<ArgumentException>(() => GetSut(val, "a").Any());
         }
     }
 }

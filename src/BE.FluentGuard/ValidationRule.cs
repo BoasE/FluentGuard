@@ -1,11 +1,12 @@
 ﻿// ==========================================================================
 // ValidationRule.cs
-// 
+//
 // FlowGuard
 // https://github.com/Gentlehag/FlowGuard
 // ==========================================================================
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BE.FluentGuard
@@ -14,7 +15,7 @@ namespace BE.FluentGuard
     /// Contains the state of the current assertions
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class ValidationRule<T>
+    public ref struct ValidationRule<T>
     {
         /// <summary>
         /// The value on which assertions are made.
@@ -27,35 +28,14 @@ namespace BE.FluentGuard
         public string Name { get; }
 
         /// <summary>
-        /// The file in which the assertions was triggered.
-        /// </summary>
-        public string File { get; }
-
-        /// <summary>
-        /// The sourcecode which the assertions was triggered.
-        /// </summary>
-        public string Source { get; }
-
-        /// <summary>
-        /// The line of code on which the assertions was triggered.
-        /// </summary>
-        public int Line { get; }
-
-        /// <summary>
         /// Creates a new validation rules
         /// </summary>
         /// <param name="value">The value on which assertions are made.</param>
         /// <param name="name">Name of the member that contained the value.</param>
-        /// <param name="file">The file in which the assertions was triggered.</param>
-        /// <param name="source">The sourcecode which the assertions was triggered.</param>
-        /// <param name="line">The line of code on which the assertions was triggered.</param>
-        public ValidationRule(T value, string name, string file, string source, int line)
+        public ValidationRule(T value, string name)
         {
             Value = value;
             Name = name;
-            File = file;
-            Source = source;
-            Line = line;
         }
 
         /// <summary>
@@ -90,8 +70,7 @@ namespace BE.FluentGuard
         /// <exception cref="ArgumentException">If the value is equal to its type default.</exception>
         public ValidationRule<T> NotDefault(string message = "Value must have default value!")
         {
-            var val = default(T);
-            if (Value.Equals(val))
+            if (EqualityComparer<T>.Default.Equals(Value, default))
             {
                 throw new ArgumentException(Name, message);
             }
